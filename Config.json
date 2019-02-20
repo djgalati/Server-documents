@@ -1,0 +1,114 @@
+{ 
+   "bridge": {
+        "name": "Homebridge",
+        "username": "CC:22:3D:E3:CE:30",
+        "port": 51826,
+        "pin": "123-45-678"
+   },
+   "description": "This is an example configuration for the Everything Homebridge plugin",
+   "platforms":[
+        {
+                "platform": "Alexa",
+                "name": "Alexa",
+                "username": "djgalati",
+                "password": "Galati06",
+                "pin": "123-45-678"
+        }
+        ],
+   "accessories": [
+        {
+                "accessory": "cec",
+                "name": "TV Power",
+                "type": "power",
+                "address": 0
+        },
+        {
+                "accessory": "RaspberryPiTemperature",
+                "name": "Homebridge CPU Temp"
+        },
+        {
+                "accessory": "HTTP-SWITCH",
+                "name": "Outlet 1",
+                "switchType": "stateful",
+                "httpMethod": "GET",
+                "onUrl": "http://192.168.0.125/R1/1",
+                "offUrl": "http://192.168.0.125/R1/0",
+                "statusUrl": "http://192.168.0.125/R1/S"
+        },
+        {
+                "accessory": "HTTP-SWITCH",
+                "name": "Outlet 2",
+                "switchType": "stateful",
+                "httpMethod": "GET",
+                "onUrl": "http://192.168.0.125/R2/1",
+                "offUrl": "http://192.168.0.125/R2/0",
+                "statusUrl": "http://192.168.0.125/R2/S"
+        },
+        {
+                "accessory": "HTTP-SWITCH",
+                "name": "Outlet 3",
+                "switchType": "stateful",
+                "httpMethod": "GET",
+                "onUrl": "http://192.168.0.125/R3/1",
+                "offUrl": "http://192.168.0.125/R3/0",
+                "statusUrl": "http://192.168.0.125/R3/S"
+        },
+         {
+                "accessory": "HTTP-SWITCH",
+                "name": "Outlet 4",
+                "switchType": "stateful",
+                "httpMethod": "GET",
+                "onUrl": "http://192.168.0.125/R4/1",
+                "offUrl": "http://192.168.0.125/R4/0",
+                "statusUrl": "http://192.168.0.125/R4/S"
+        },
+        {
+                "accessory": "Weather",
+                "apikey": "488df9a4ac0ee51d36e98cf18bd9a091",
+                "locationByCoordinates": "lat=35.1995&lon=-111.6515",
+                "name": "Current Temp",
+                "pollingInterval": 15,
+                "unit": "imperial"
+        },
+        {
+                "accessory": "Weather",
+                "apikey": "488df9a4ac0ee51d36e98cf18bd9a091",
+                "locationByCoordinates": "lat=35.1995&lon=-111.6515",
+                "name": "Daily Max",
+                "type": "max",
+                "pollingInterval": 15,
+                "unit": "imperial"
+        },
+        {
+                "accessory": "Weather",
+                "apikey": "488df9a4ac0ee51d36e98cf18bd9a091",
+                "locationByCoordinates": "lat=35.1995&lon=-111.6515",
+                "name": "Daily Min",
+                "type": "min",
+                "pollingInterval": 15,
+                "unit": "imperial"
+        },
+        {
+                "accessory": "Weather",
+                "apikey": "488df9a4ac0ee51d36e98cf18bd9a091",
+                "locationByCoordinates": "lat=35.1995&lon=-111.6515",
+                "name": "Cloudiness",
+                "type": "min",
+                "pollingInterval": 15,
+                "unit": "imperial",
+                "nameHumidity": "Coverge"
+        },
+        {
+                "accessory": "Weather",
+                "apikey": "488df9a4ac0ee51d36e98cf18bd9a091",
+                "locationByCoordinates": "lat=35.1995&lon=-111.6515",
+                "name": "Sun",
+                "type": "sun",
+                "pollingInterval": 15,
+                "unit": "imperial",
+                "nameHumidity": "Sunniness"
+        }
+   ]
+}
+
+
