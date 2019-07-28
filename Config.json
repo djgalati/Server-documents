@@ -10,8 +10,8 @@
         {
                 "platform": "Alexa",
                 "name": "Alexa",
-                "username": "djgalati",
-                "password": "Galati06",
+                "username": "********",
+                "password": "**********",
                 "pin": "123-45-678"
         },
         {
@@ -25,7 +25,7 @@
                 "platform": "WeatherPlus",
                 "name": "WeatherPlus",
                 "service": "darksky",
-                "key": "fab65fec6aec3889de95e04bd2a18c8d",
+                "key": "fab65fec6alds8dde95e04bd2a18c8d",
                 "locationGeo": [35.1995, 111.6515],
                 "units": "us",
                 "forecast": [1,2]
@@ -33,8 +33,8 @@
         {
                 "platform": "VesyncPlug",
                 "name": "Wifi Outlets",
-                "username": "djgalati@me.com",
-                "password": "Galati06"
+                "username": "********@***.com",
+                "password": "**********"
          },
          {
                 "platform": "MagicHome-Platform",
