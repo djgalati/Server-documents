@@ -1,4 +1,4 @@
-{ 
+{
    "bridge": {
         "name": "Homebridge",
         "username": "CC:22:3D:E3:CE:30",
@@ -13,15 +13,71 @@
                 "username": "djgalati",
                 "password": "Galati06",
                 "pin": "123-45-678"
+        },
+        {
+                "platform": "Server",
+                "port"    :8765,
+                "name"    :"Toolshed Server",
+                "log"     :"systemd",
+                "restart" :"sudo systemctl restart homebridge"
+        },
+        {
+                "platform": "WeatherPlus",
+                "name": "WeatherPlus",
+                "service": "darksky",
+                "key": "fab65fec6aec3889de95e04bd2a18c8d",
+                "locationGeo": [35.1995, 111.6515],
+                "units": "us",
+                "forecast": [1,2]
+        },
+        {
+                "platform": "VesyncPlug",
+                "name": "Wifi Outlets",
+                "username": "djgalati@me.com",
+                "password": "Galati06"
+         },
+         {
+                "platform": "MagicHome-Platform",
+                "debug": true,
+                "lights": [
+                 {
+                    "name": "Kitchen LED's",
+                    "ip": "192.168.0.38",
+                    "setup": "RGB",
+                    "purewhite": false,
+                    "timeout": 10000
+                 }
+                ],
+                "presetSwitches": [
+                 {
+                    "name": "Strobe",
+                    "ips": {
+                        "192.168.0.38": "255,215,0"
+                    },
+                    "preset": "white_strobe_flash",
+                    "speed": 100
+                },
+                {
+                    "name": "Cross Fade",
+                    "ips": {
+                        "192.168.0.38": "255,15,0"
+                    },
+                    "preset": "seven_color_cross_fade",
+                    "speed": 90,
+                    "shouldTurnOff": true
+                },
+                {
+                    "name": "Jump Colors",
+                    "ips": {
+                        "192.168.0.38": "255,15,0"
+                    },
+                    "preset": "seven_color_jumping",
+                    "speed": 95
+                 }
+                ]
         }
         ],
    "accessories": [
-        {
-                "accessory": "cec",
-                "name": "TV Power",
-                "type": "power",
-                "address": 0
-        },
         {
                 "accessory": "RaspberryPiTemperature",
                 "name": "Homebridge CPU Temp"
@@ -31,84 +87,46 @@
                 "name": "Outlet 1",
                 "switchType": "stateful",
                 "httpMethod": "GET",
-                "onUrl": "http://192.168.0.125/R1/1",
-                "offUrl": "http://192.168.0.125/R1/0",
-                "statusUrl": "http://192.168.0.125/R1/S"
+                "onUrl": "http://192.168.0.3/R1/1",
+                "offUrl": "http://192.168.0.3/R1/0",
+                "statusUrl": "http://192.168.0.3/R1/S"
         },
         {
                 "accessory": "HTTP-SWITCH",
                 "name": "Outlet 2",
                 "switchType": "stateful",
                 "httpMethod": "GET",
-                "onUrl": "http://192.168.0.125/R2/1",
-                "offUrl": "http://192.168.0.125/R2/0",
-                "statusUrl": "http://192.168.0.125/R2/S"
+                "onUrl": "http://192.168.0.3/R2/1",
+                "offUrl": "http://192.168.0.3/R2/0",
+                "statusUrl": "http://192.168.0.3/R2/S"
         },
         {
                 "accessory": "HTTP-SWITCH",
                 "name": "Outlet 3",
                 "switchType": "stateful",
                 "httpMethod": "GET",
-                "onUrl": "http://192.168.0.125/R3/1",
-                "offUrl": "http://192.168.0.125/R3/0",
-                "statusUrl": "http://192.168.0.125/R3/S"
+                "onUrl": "http://192.168.0.3/R3/1",
+                "offUrl": "http://192.168.0.3/R3/0",
+                "statusUrl": "http://192.168.0.3/R3/S"
         },
-         {
+        {
                 "accessory": "HTTP-SWITCH",
                 "name": "Outlet 4",
                 "switchType": "stateful",
                 "httpMethod": "GET",
-                "onUrl": "http://192.168.0.125/R4/1",
-                "offUrl": "http://192.168.0.125/R4/0",
-                "statusUrl": "http://192.168.0.125/R4/S"
+                "onUrl": "http://192.168.0.3/R4/1",
+                "offUrl": "http://192.168.0.3/R4/0",
+                "statusUrl": "http://192.168.0.3/R4/S"
         },
         {
-                "accessory": "Weather",
-                "apikey": "488df9a4ac0ee51d36e98cf18bd9a091",
-                "locationByCoordinates": "lat=35.1995&lon=-111.6515",
-                "name": "Current Temp",
-                "pollingInterval": 15,
-                "unit": "imperial"
-        },
-        {
-                "accessory": "Weather",
-                "apikey": "488df9a4ac0ee51d36e98cf18bd9a091",
-                "locationByCoordinates": "lat=35.1995&lon=-111.6515",
-                "name": "Daily Max",
-                "type": "max",
-                "pollingInterval": 15,
-                "unit": "imperial"
-        },
-        {
-                "accessory": "Weather",
-                "apikey": "488df9a4ac0ee51d36e98cf18bd9a091",
-                "locationByCoordinates": "lat=35.1995&lon=-111.6515",
-                "name": "Daily Min",
-                "type": "min",
-                "pollingInterval": 15,
-                "unit": "imperial"
-        },
-        {
-                "accessory": "Weather",
-                "apikey": "488df9a4ac0ee51d36e98cf18bd9a091",
-                "locationByCoordinates": "lat=35.1995&lon=-111.6515",
-                "name": "Cloudiness",
-                "type": "min",
-                "pollingInterval": 15,
-                "unit": "imperial",
-                "nameHumidity": "Coverge"
-        },
-        {
-                "accessory": "Weather",
-                "apikey": "488df9a4ac0ee51d36e98cf18bd9a091",
-                "locationByCoordinates": "lat=35.1995&lon=-111.6515",
-                "name": "Sun",
-                "type": "sun",
-                "pollingInterval": 15,
-                "unit": "imperial",
-                "nameHumidity": "Sunniness"
+                "accessory": "HTTP-SWITCH",
+                "name": "Redbull Display",
+                "switchType": "stateful",
+                "httpMethod": "GET",
+                "onUrl": "http://192.168.0.41/1",
+                "offUrl": "http://192.168.0.41/0",
+                "statusUrl": "http://192.168.0.41/S"
         }
+
    ]
 }
-
-
