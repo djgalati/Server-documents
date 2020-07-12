@@ -1,0 +1,130 @@
+{
+   "bridge": {
+        "name": "Homebridge",
+        "username": "CC:22:3D:E3:CE:30",
+        "port": 51826,
+        "pin": "123-45-678"
+   },
+   "description": "This is an example configuration for the Everything Homebridge plugin",
+   "platforms":[
+        {
+                "platform": "Alexa",
+                "name": "Alexa",
+                "username": "djgalati",
+                "password": "Galati06",
+                "pin": "123-45-678"
+        },
+        {
+                "platform": "Server",
+                "port"    :8765,
+                "name"    :"The Yard Server",
+                "log"     :"systemd",
+                "restart" :"sudo systemctl restart homebridge"
+        },
+        {
+                "platform": "WeatherPlus",
+                "name": "WeatherPlus",
+                "service": "darksky",
+                "key": "fab65fec6aec3889de95e04bd2a18c8d",
+                "locationGeo": [35.1995, 111.6515],
+                "units": "us",
+                "forecast": [1,2]
+        },
+        {
+                "platform": "VesyncPlug",
+                "name": "Wifi Outlets",
+                "username": "djgalati@me.com",
+                "password": "Galati06"
+         },
+         {
+                "platform": "MagicHome-Platform",
+                "debug": true,
+                "lights": [
+                 {
+                   "name": "Doms Room Light",
+                   "ip": "192.168.1.2",
+                   "setup": "RGBW",
+                   "purewhite": true,
+                   "timeout": 10000
+                 }
+                ]
+        },
+        {
+         "platform": "TuyaWebPlatform",
+                 "name": "TuyaWebPlatform",
+                 "options":
+                        {
+                            "username": "8479170869",
+                            "password": "Galati06",
+                            "countryCode": "01",
+                            "platform": "smart_life",
+                            "pollingInterval": 10
+                        }
+        }
+        ],
+        "accessories": [
+        {
+                "accessory": "RaspberryPiTemperature",
+                "name": "Homebridge CPU Temp"
+        },
+        {
+                "accessory": "HTTP-SWITCH",
+                "name": "Outlet 1",
+                "switchType": "stateful",
+                "httpMethod": "GET",
+                "onUrl": "http://192.168.1.13/R1/1",
+                "offUrl": "http://192.168.1.13/R1/0",
+                "statusUrl": "http://192.168.1.13/R1/S"
+        },
+        {
+                "accessory": "HTTP-SWITCH",
+                "name": "Outlet 2",
+                "switchType": "stateful",
+                "httpMethod": "GET",
+                "onUrl": "http://192.168.1.13/R2/1",
+                "offUrl": "http://192.168.1.13/R2/0",
+                "statusUrl": "http://192.168.1.13/R2/S"
+        },
+        {
+                "accessory": "HTTP-SWITCH",
+                "name": "Outlet 3",
+                "switchType": "stateful",
+                "httpMethod": "GET",
+                "onUrl": "http://192.168.1.13/R3/1",
+                "offUrl": "http://192.168.1.13/R3/0",
+                "statusUrl": "http://192.168.1.13/R3/S"
+        },
+        {
+                "accessory": "HTTP-SWITCH",
+                "name": "Outlet 4",
+                "switchType": "stateful",
+                "httpMethod": "GET",
+                "onUrl": "http://192.168.1.13/R4/1",
+                "offUrl": "http://192.168.1.13/R4/0",
+                "statusUrl": "http://192.168.1.13/R4/S"
+        },
+        {
+                "accessory": "HTTP-SWITCH",
+                "name": "Redbull Display",
+                "switchType": "stateful",
+                "httpMethod": "GET",
+                "onUrl": "http://192.168.1.17/1",
+                "offUrl": "http://192.168.1.17/0",
+                "statusUrl": "http://192.168.1.17/S"
+        },
+        {
+                "accessory": "HTTP-SWITCH",
+                "name": "PCB Display",
+                "switchType": "stateful",
+                "httpMethod": "GET",
+                "onUrl": "http://192.168.1.15/1",
+                "offUrl": "http://192.168.1.15/0",
+                "statusUrl": "http://192.168.1.15/S"
+        }
+
+
+   ]
+}
+
+
+
